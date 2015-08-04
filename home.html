@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Scheduler</title>
+
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+</head>
+
+<body >
+<div id='messagesDiv'></div>
+<script>
+
+var myDataRef=new Firebase('https://lydia-planner.firebaseio.com/web/data');
+$('#Input').keypress(function (e) {
+        if (e.keyCode == 13) {
+          var name = $('#eventtxt').val();
+          var note = $('#txtaddition').val();
+          var day = $('.selectday').val();
+          var month = $('.selectmonth').val();  
+          var year = $('.selectyear').val();
+          var group1 = $('#RadioGroup1_0').val(); 
+          var group2 = $('#RadioGroup1_1').val();
+          var group3 = $('#RadioGroup1_2').val(); 
+          var group4 = $('#RadioGroup1_3').val();
+        
+		
+		myDataRef.push(name+note+day+month+year+group1+group2+group3+group4);
+		
+          $('#Input').val('');
+        }
+      });
+	  
+	   myDataRef.on('child_added', function(snapshot) {
+        var event = snapshot.val();
+        displayEvent(event.name, event.note,event.day,event.month,event.year,event.group1,event.group2,event.group3,event.group4);
+      });
+      function displayEvent(name,note,day,month,year,group1,group2,group3,group4) {
+        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      };
+	  </script>
+<div id="Wrapper">
+<nav>
+<ul>
+<li>Create Event</li>
+<li>Event List</li>
+<li>Single Event View</li>
+<li>Edit Event</li>
+<li>Delete Event</li>
+</ul>
+</nav>
+
+<article>
+<form action="" method="get">
+<table width="516" border="0">
+
+  <tr>
+    <td colspan="2"><h1>Create Event</h1></td>
+    </tr>
+  <tr>
+    <td width="174" height="34">Name of Event</td>
+    <td width="328"><label for="eventtxt"></label>
+      <input type="text" name="eventtxt" id="eventtxt" /></td>
+  </tr>
+  <tr>
+    <td>Additional Note</td>
+    <td><label for="txtaddition"></label>
+      <textarea name="txtaddition" id="txtaddition" cols="36" rows="2"></textarea></td>
+  </tr>
+  <tr>
+    <td height="37">Due Date</td>
+    <td><select name="day" class="selectday">
+    <option>1</option><option>2</option>
+    <option>3</option><option>4</option>
+    <option>5</option><option>6</option>
+    <option>7</option><option>8</option>
+    <option>9</option><option>10</option>
+    <option>11</option><option>12</option>
+    <option>13</option><option>14</option>
+    <option>15</option><option>16</option>
+    <option>17</option><option>18</option>
+    <option>19</option><option>20</option>
+    <option>21</option><option>22</option>
+    <option>23</option><option>24</option>
+    <option>25</option><option>26</option>
+    <option>27</option><option>28</option>
+    <option>29</option><option>30</option>
+    <option>31</option>
+    </select>
+    <select name="month" class="selectmonth">
+    <option>January</option><option>February</option>
+    <option>March</option><option>April</option>
+    <option>May</option><option>June</option>
+    <option>July</option><option>August</option>
+    <option>September</option><option>October</option>
+    <option>November</option><option>December</option>
+    </select>
+    <select name="year" class="selectyear">
+    <option>2015</option><option>2016</option>
+    <option>2017</option><option>2018</option>
+    <option>2019</option><option>2020</option>
+    <option>2021</option><option>2022</option>
+ </select>
+ </td>
+  </tr>
+  <tr>
+    <td>Date to be Reminded</td>
+    <td><select name="day" class="selectday">
+    <option>1</option><option>2</option>
+    <option>3</option><option>4</option>
+    <option>5</option><option>6</option>
+    <option>7</option><option>8</option>
+    <option>9</option><option>10</option>
+    <option>11</option><option>12</option>
+    <option>13</option><option>14</option>
+    <option>15</option><option>16</option>
+    <option>17</option><option>18</option>
+    <option>19</option><option>20</option>
+    <option>21</option><option>22</option>
+    <option>23</option><option>24</option>
+    <option>25</option><option>26</option>
+    <option>27</option><option>28</option>
+    <option>29</option><option>30</option>
+    <option>31</option>
+    </select>
+    <select name="month" class="selectmonth">
+    <option>January</option><option>February</option>
+    <option>March</option><option>April</option>
+    <option>May</option><option>June</option>
+    <option>July</option><option>August</option>
+    <option>September</option><option>October</option>
+    <option>November</option><option>December</option>
+    </select>
+    <select name="year" class="selectyear">
+    <option>2015</option><option>2016</option>
+    <option>2017</option><option>2018</option>
+    <option>2019</option><option>2020</option>
+    <option>2021</option><option>2022</option>
+ </select></td>
+  </tr>
+  <tr>
+    <td>Alarm</td>
+    <td>
+      <input type="radio" name="radioalarm" id="radioalarm" /><label for="radioalarm">Alarm</label>
+      <input type="radio" name="radionoalarm" id="radionoalarm" />
+      <label for="radionoalarm"> No Alarm</label></td>
+  </tr>
+  <tr>
+    <td>Recurrence</td>
+    <td>
+    <p>
+      <label>
+        <input type="radio" name="RadioGroup1" value="radio" id="RadioGroup1_0" />
+        Daily</label>
+      <br />
+      <label>
+        <input type="radio" name="RadioGroup1" value="radio" id="RadioGroup1_1" />
+        Weekly</label>
+      <br />
+      <label>
+        <input type="radio" name="RadioGroup1" value="radio" id="RadioGroup1_2" />
+        Monthly</label>
+      <br />
+      <label>
+        <input type="radio" name="RadioGroup1" value="radio" id="RadioGroup1_3" />
+        Yearly</label>
+      <br />
+    </p>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input name="addbtn" type="button" value="Add Event" /></td></tr>
+</table>
+</form>
+
+</article>
+
+
+</div>
+</body>
+</html>
