@@ -4,8 +4,8 @@
 body{
 	margin:0px;
 	padding:0px;
-	background:#FFC;
-	
+	background:#FFe;
+
 }
 #Wrapper{
 	width:960px;
@@ -85,23 +85,26 @@ nav a:hover{
 
 }
 article{
-	width:960px;
+	width:920px;
+	background:#FFC;
+	padding:20px;
 	
 }
-table {
-	background-color:#FFC;
-		 padding:10px;
-		 margin:10px;
-		 color:#444;
-		 border:1px #666 solid;
-		 }
+article h1{
+	padding-top:20px;
+	color:#30C;
+		
+	
+}
 		 input[type=text]{
-			width:230px; 
+			width:230px;
+			color:#003;
+			border-bottom-style:ridge;
+			border-bottom:1px #000 solid; 
+			border-right:1px #000 solid;
 		 }
-		 table h1{
-		 padding-left:20px;
-		 color:#004;
-		 }
-		 article{
-			 float:left;
-		 }
+article p{
+	color:#005;
+	font-size:16px;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
