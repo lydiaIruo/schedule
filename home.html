@@ -22,7 +22,8 @@
 </nav>
 
 <article>
-<div id='messagesDiv'></div>
+<div id="messagesDiv"></div>
+<div id="create">
 <h1>Create Event</h1>
 
   <p>Event Name: &nbsp;
@@ -140,26 +141,28 @@ $('#txtaddition').keypress(function (e) {
           var group3 = $('#RadioGroup1_2').val(); 
           var group4 = $('#RadioGroup1_3').val();
      
-myDataRef.push({name:name,note:note,e_day:e_day,e_month:e_month,
-				e_year:e_year,r_day:r_day,r_month:r_month,r_year:r_year,
-				alarm:alarm,noalarm:noalarm,group1:group1,group2:group2,
-				group3:group3,group4:group4});
+myDataRef.push({
+	name:name,note:note,e_day:e_day,e_month:e_month,
+	e_year:e_year,r_day:r_day,r_month:r_month,r_year:				
+	r_year,alarm:alarm,noalarm:noalarm,group1:group1,
+	group2:group2,group3:group3,group4:group4});
           $('#txtaddition').val('');
         }
       });  
 myDataRef.on('child_added', function(snapshot) {
         var event = snapshot.val();
-        displayEvent(event.name, event.note,event.e_day,event.e_month,
-					 event.e_year,event.r_day,event.r_month,event.r_year,
-					 event.alarm,event.noalarm,event.group1,event.group2,
-					 event.group3,event.group4);
+        displayEvent(
+	event.name, event.note,event.e_day,event.e_month,
+	event.e_year,event.r_day,event.r_month,event.r_year,
+	event.alarm,event.noalarm,event.group1,
+	event.group2,event.group3,event.group4);
       });
- function displayEvent(name,e_day) {
-      $('<div/>').name(name).prepend($('<em/>').name(e_day+': ')).appendTo($('#messagesDiv'));
+ function displayEvent(name,text,note) {
+      $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
         $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
       };
 	  </script>
-
+</div>
 </article>
 
 

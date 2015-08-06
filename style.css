@@ -5,19 +5,15 @@ body{
 	margin:0px;
 	padding:0px;
 	background:#FFe;
-
 }
 #Wrapper{
 	width:960px;
-	margin:0 auto;	
-	
+	margin:0 auto;		
 }
 #article1{
 		width:960px;
-		
 		margin-top:50px;
-		text-align:center;
-			
+		text-align:center;	
 }
 #article1 h1{
 	font-size:120px;	
@@ -39,7 +35,6 @@ body{
 	text-decoration:none;
 	color:#005;
 }
-
 #article1 a:hover{
 	font-size:30px;
 	text-decoration:underline;
@@ -61,48 +56,50 @@ nav li{
 	list-style: none;
 	float:left;
 	color:#0C6;	
-	
 	width:130px;
-	
 	padding:10px;
 	text-align:left;
 	font-size:16px;
-	font-family:Georgia, "Times New Roman", Times, serif;
-	
+	font-family:Georgia, "Times New Roman", Times, serif;	
 }
 nav a{
 	display:block;
 	text-decoration:none;
-	color:#005;
-		
+	color:#005;	
 }
 nav a:hover{
 	display:block;
-		
 	color:#000;
 	opacity:0.8;
 	font-weight:bold;
-
+}
+#messagesDiv{
+	width:280px;
+	float:left;	
+	background:#ffd;
+	margin:20px;
+	padding:10px;
+}
+#create{
+	width:600px;
+	float:left;	
+	background:#ffd;
+	margin:20px 0px 20px 0px;
+	padding:10px;
 }
 article{
-	width:920px;
-	background:#FFC;
-	padding:20px;
-	
+	width:960px;
 }
 article h1{
-	padding-top:20px;
 	color:#30C;
-		
-	
 }
-		 input[type=text]{
-			width:230px;
-			color:#003;
-			border-bottom-style:ridge;
-			border-bottom:1px #000 solid; 
-			border-right:1px #000 solid;
-		 }
+input[type=text]{
+	width:230px;
+	color:#003;
+	border-bottom-style:ridge;
+	border-bottom:1px #000 solid; 
+	border-right:1px #000 solid;
+}
 article p{
 	color:#005;
 	font-size:16px;
