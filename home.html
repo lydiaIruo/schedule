@@ -7,23 +7,17 @@
 <link href="style.css" rel="stylesheet" type="text/css" />
 <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+
 </head>
 
 <body >
 <div id="Wrapper">
-<nav>
-<ul>
-<li>Create Event</li>
-<li>Event List</li>
-<li>Single Event View</li>
-<li>Edit Event</li>
-<li>Delete Event</li>
-</ul>
-</nav>
+
 
 <article>
-<div id="messagesDiv"></div>
+
 <div id="create">
+<form action="" >
 <h1>Create Event</h1>
 
   <p>Event Name: &nbsp;
@@ -67,7 +61,7 @@
  	</p>
     
     <p>Date to be<br> Reminded:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <select name="day" id="remindday">
+    <select name="day1" id="remindday">
     <option>1</option><option>2</option>
     <option>3</option><option>4</option>
     <option>5</option><option>6</option>
@@ -86,7 +80,7 @@
     <option>31</option>
     </select>
     
-    <select name="month" id="remindmonth">
+    <select name="month1" id="remindmonth">
     <option>January</option><option>February</option>
     <option>March</option><option>April</option>
     <option>May</option><option>June</option>
@@ -95,7 +89,7 @@
     <option>November</option><option>December</option>
     </select>
     
-    <select name="year" id="remindyear">
+    <select name="year1" id="remindyear">
     <option>2015</option><option>2016</option>
     <option>2017</option><option>2018</option>
     <option>2019</option><option>2020</option>
@@ -105,25 +99,24 @@
     
     <p>Alarm:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <input type="radio" name="radioalarm" id="radioalarm" /><label for="radioalarm">Alarm</label>
-      <input type="radio" name="radionoalarm" id="radionoalarm" /><label for="radionoalarm"> No Alarm</label>
+      <input type="radio" name="radioalarm" id="radionoalarm" /><label for="radionoalarm"> No Alarm</label>
   	</p>
   
   	<p>
     Recurrence:
      <label><input type="radio" name="RadioGroup1"  id="RadioGroup1_0" />Daily</label>
      <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="RadioGroup1" id="RadioGroup1_1"/>Weekly</label><br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-     <label><input type="radio" name="RadioGroup1"  id="RadioGroup1_2" />Monthly</label>
+     <label><input type="radio" name="RadioGroup!"  id="RadioGroup1_2" />Monthly</label>
      <label><input type="radio" name="RadioGroup1"  id="RadioGroup1_3" />Yearly</label>
     </p>
     
  <p>
  Additional Note:&nbsp;<input type="text" name="txtaddition" id="txtaddition"  placeholder="Additional Note">
  </p>
- <br><br>
-  <input name="addbtn" type="button" value="Add Event"/>
-  
-<script>
+ <p style="padding:10px;">Press <b>Enter Key</b> to save your event</p>
+ <script>
 var myDataRef=new Firebase('https://lydia-planner.firebaseio.com');
+
 $('#txtaddition').keypress(function (e) {
         if (e.keyCode == 13) {
           var name = $('#eventtxt').val();
@@ -147,6 +140,7 @@ myDataRef.push({
 	r_year,alarm:alarm,noalarm:noalarm,group1:group1,
 	group2:group2,group3:group3,group4:group4});
           $('#txtaddition').val('');
+		   $('#eventtxt').val('');
         }
       });  
 myDataRef.on('child_added', function(snapshot) {
@@ -157,11 +151,17 @@ myDataRef.on('child_added', function(snapshot) {
 	event.alarm,event.noalarm,event.group1,
 	event.group2,event.group3,event.group4);
       });
- function displayEvent(name,text,note) {
-      $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+ function displayEvent(text,name,note,e_day,e_month,e_year) {
+      $('<div/>').text(text).prepend($('<em/>').text('Event'+':'+name+' '+'Additional Note'+': ')).prepend($('<p/>').text('Event Date'+':'+e_day+'/'+e_year+'/'+e_month)).appendTo($('#messagesDiv'));
         $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
       };
+
+
 	  </script>
+      </form>
+</div>
+<div id="messagesDiv">
+<h1>View Event</h1>
 </div>
 </article>
 

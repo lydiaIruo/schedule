@@ -8,12 +8,14 @@ body{
 }
 #Wrapper{
 	width:960px;
-	margin:0 auto;		
+	margin:0 auto;
+	height:100%;		
 }
 #article1{
 		width:960px;
 		margin-top:50px;
-		text-align:center;	
+		text-align:center;
+			
 }
 #article1 h1{
 	font-size:120px;	
@@ -76,22 +78,28 @@ nav a:hover{
 #messagesDiv{
 	width:280px;
 	float:left;	
-	background:#ffd;
-	margin:20px;
+	background:#007;
+	color:#3F0;
+	margin:0px 20px 20px 20px;
 	padding:10px;
 }
 #create{
 	width:600px;
 	float:left;	
-	background:#ffd;
-	margin:20px 0px 20px 0px;
+	background:#057;
+	color:#fff;
+	margin:0px 0px 20px 0px;
 	padding:10px;
 }
 article{
 	width:960px;
+	
+	
+	height:100%;
 }
+
 article h1{
-	color:#30C;
+	color:#3F0;
 }
 input[type=text]{
 	width:230px;
@@ -101,7 +109,7 @@ input[type=text]{
 	border-right:1px #000 solid;
 }
 article p{
-	color:#005;
+	color:#ffe;
 	font-size:16px;
 	font-family:Georgia, "Times New Roman", Times, serif;
 }
