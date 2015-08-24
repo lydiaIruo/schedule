@@ -6,16 +6,43 @@ body{
 	padding:0px;
 	background:#FFe;
 }
+
 #Wrapper{
 	width:960px;
 	margin:0 auto;
 	height:100%;		
+}
+header{
+	background:url(images/head.png);
+	width:960px;
+	height:120px;
+}
+#alarm4{display:none;
+width:235px;
+font-size:18px;
+background:#fff;
+color:#057;
+padding:2px;
+
+	
+}
+#today{
+float:right;
+color:#057;
+font-weight:bold;
+font-size:18px;
+padding-right:10px;
+
+padding-top:90px;	
 }
 #article1{
 		width:960px;
 		margin-top:50px;
 		text-align:center;
 			
+}
+.ex{
+	display:block;
 }
 #article1 h1{
 	font-size:120px;	
@@ -42,45 +69,12 @@ body{
 	text-decoration:underline;
 	color:#000;	
 }
-nav{
-	width:960px;
-	height:50px;
-	background:#fff;
-	float:left;
-}
-nav ul{
-	margin:0px;
-	padding:0px;
-}
-nav li{	
-	height:30px;
-	display:block;
-	list-style: none;
-	float:left;
-	color:#0C6;	
-	width:130px;
-	padding:10px;
-	text-align:left;
-	font-size:16px;
-	font-family:Georgia, "Times New Roman", Times, serif;	
-}
-nav a{
-	display:block;
-	text-decoration:none;
-	color:#005;	
-}
-nav a:hover{
-	display:block;
-	color:#000;
-	opacity:0.8;
-	font-weight:bold;
-}
 #messagesDiv{
-	width:280px;
+	width:300px;
 	float:left;	
 	background:#007;
 	color:#3F0;
-	margin:0px 20px 20px 20px;
+	margin:0px 0px 20px 20px;
 	padding:10px;
 }
 #create{
@@ -93,8 +87,6 @@ nav a:hover{
 }
 article{
 	width:960px;
-	
-	
 	height:100%;
 }
 
